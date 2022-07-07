@@ -74,14 +74,12 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 # Clone this project
 $ git clone https://github.com/aleksander124/docker.git
 
-# Access
-$ cd git
+# Build the app’s container image
+$ docker build -t getting-started .
 
-# Install dependencies
-$ yarn
+# Start an app container
+$ docker run -dp 3000:3000 getting-started
 
-# Run the project
-$ yarn start
 
 # The server will initialize in the <http://localhost:3000>
 ```
