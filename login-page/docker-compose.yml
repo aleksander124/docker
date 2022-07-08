@@ -5,13 +5,17 @@ version: '3'
 services:
   db:
     image: mysql:5.7
+    container_name: database
     environment:
-      MYSQL_ROOT_PASSWORD: my_secret_pw_shh
+      MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: test_db
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
     ports:
       - "9906:3306"
+    volumes:
+      - ./php/:/php/
+     
   web:
     image: php:7.2.2-apache
     container_name: php_web
@@ -22,4 +26,4 @@ services:
     ports:
       - "8100:80"
     stdin_open: true
-    tty: true
+    tty: true  
