@@ -3,10 +3,7 @@ FROM php:7.4-apache
 COPY php/ /var/www/html
 WORKDIR /var/www/html
 
-ARG DEBIAN_FRONTEND=newt
-
 RUN apt-get update -y && \
-	apt-get upgrade -y && \
 	apt-get install -y \
 		libfreetype6-dev \
 		libjpeg62-turbo-dev \
@@ -22,5 +19,3 @@ RUN find /var/www -type d -exec chmod 775 {} +
 RUN find /var/www -type f -exec chmod 664 {} +
 
 EXPOSE 80
-
-CMD ["/usr/sbin/apache2ctl","-DFOREGROUND"]
