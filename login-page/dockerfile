@@ -14,7 +14,7 @@ RUN apt-get update -y && \
 		mcrypt \
 		vim
 
-RUN apt-get install locales
+RUN apt-get install locales -y
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 RUN chgrp -R www-data /var/www
