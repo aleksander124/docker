@@ -2,7 +2,7 @@
 FROM php:8.0-apache
 COPY php/ /var/www/html
 WORKDIR /var/www/html
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
 		libfreetype6-dev \
 		libjpeg62-turbo-dev \
 		libpng-dev 
