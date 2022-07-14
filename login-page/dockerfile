@@ -9,7 +9,7 @@ RUN apt-get update -y && \
 		libjpeg62-turbo-dev \
 		libpng-dev \ 
 		mcrypt \
-		vim
+		curl
 
 RUN apt-get install locales -y
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
