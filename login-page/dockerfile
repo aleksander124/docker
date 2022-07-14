@@ -1,8 +1,11 @@
 # syntax=docker/dockerfile:1
-FROM php:8.0-apache
+FROM php:7.4-apache
 COPY php/ /var/www/html
 WORKDIR /var/www/html
-RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+RUN chown -R www-data:www-data /var/www
+RUN apt-get update -y && \
+	apt-get upgrade && \
+	apt-get install -y \
 		libfreetype6-dev \
 		libjpeg62-turbo-dev \
 		libpng-dev 
