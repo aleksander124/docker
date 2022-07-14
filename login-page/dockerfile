@@ -3,24 +3,16 @@ FROM php:7.4-apache
 COPY php/ /var/www/html
 WORKDIR /var/www/html
 
-
 ARG DEBIAN_FRONTEND=newt
 
-RUN apt-get -y update && apt-get install -y \
-apache2 \
-php7.4 \
-libapache2-mod-php7.4 \
-php7.4-bcmath \
-php7.4-gd \
-php7.4-json \
-php7.4-sqlite \
-php7.4-mysql \
-php7.4-curl \
-php7.4-xml \
-php7.4-mbstring \
-php7.4-zip \
-mcrypt \
-nano
+RUN apt-get update -y && \
+	apt-get upgrade -y && \
+	apt-get install -y \
+		libfreetype6-dev \
+		libjpeg62-turbo-dev \
+		libpng-dev \ 
+		mcrypt \
+		vim
 
 RUN apt-get install locales
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
