@@ -1,0 +1,18 @@
+verion: '3'
+services: 
+  mongodb:
+    image: mongo
+    ports:
+    - 27017:27017
+    enviroment:
+    - MONGO_INITDB_ROOT_USERNAME=admin
+    - MONOG_INITDB_ROOT_PASSWORD=password 
+  mongo-express:
+    image: mongo-express 
+    ports: 
+    - 8080:8080
+    enviroment:
+    - ME_CONFIG_MONGODB_ADMINUSERNAEM=admin
+    - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+    - ME_CONFIG_MONGODB_SERVER=mongodb 
+    
